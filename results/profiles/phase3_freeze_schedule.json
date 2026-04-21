@@ -1,0 +1,147 @@
+[
+  {
+    "step": 149,
+    "layer": "distilbert.transformer.layer.0.attention.out_lin",
+    "scale": 0.013831676516392383
+  },
+  {
+    "step": 149,
+    "layer": "distilbert.transformer.layer.0.ffn.lin1",
+    "scale": 0.13352207464918803
+  },
+  {
+    "step": 149,
+    "layer": "distilbert.transformer.layer.0.ffn.lin2",
+    "scale": 0.037568280764173276
+  },
+  {
+    "step": 299,
+    "layer": "distilbert.transformer.layer.1.attention.q_lin",
+    "scale": 0.051008479312944534
+  },
+  {
+    "step": 299,
+    "layer": "distilbert.transformer.layer.1.attention.k_lin",
+    "scale": 0.051008479312944534
+  },
+  {
+    "step": 299,
+    "layer": "distilbert.transformer.layer.1.attention.v_lin",
+    "scale": 0.051008479312944534
+  },
+  {
+    "step": 449,
+    "layer": "distilbert.transformer.layer.2.attention.q_lin",
+    "scale": 0.07423387196816293
+  },
+  {
+    "step": 449,
+    "layer": "distilbert.transformer.layer.2.attention.k_lin",
+    "scale": 0.07423387196816293
+  },
+  {
+    "step": 449,
+    "layer": "distilbert.transformer.layer.2.attention.v_lin",
+    "scale": 0.07423387196816293
+  },
+  {
+    "step": 599,
+    "layer": "distilbert.transformer.layer.3.attention.q_lin",
+    "scale": 0.09644792303049214
+  },
+  {
+    "step": 599,
+    "layer": "distilbert.transformer.layer.3.attention.k_lin",
+    "scale": 0.09644792303049214
+  },
+  {
+    "step": 599,
+    "layer": "distilbert.transformer.layer.3.attention.v_lin",
+    "scale": 0.09644792303049214
+  },
+  {
+    "step": 749,
+    "layer": "distilbert.transformer.layer.4.attention.out_lin",
+    "scale": 0.019238789239389462
+  },
+  {
+    "step": 749,
+    "layer": "distilbert.transformer.layer.4.ffn.lin1",
+    "scale": 0.08091214941222773
+  },
+  {
+    "step": 749,
+    "layer": "distilbert.transformer.layer.1.ffn.lin2",
+    "scale": 0.029259486236376354
+  },
+  {
+    "step": 899,
+    "layer": "distilbert.transformer.layer.1.attention.out_lin",
+    "scale": 0.01303606503868608
+  },
+  {
+    "step": 899,
+    "layer": "distilbert.transformer.layer.2.ffn.lin1",
+    "scale": 0.2178786713373969
+  },
+  {
+    "step": 899,
+    "layer": "distilbert.transformer.layer.1.ffn.lin1",
+    "scale": 0.2638301123770972
+  },
+  {
+    "step": 1049,
+    "layer": "distilbert.transformer.layer.4.attention.q_lin",
+    "scale": 0.12508372910371737
+  },
+  {
+    "step": 1049,
+    "layer": "distilbert.transformer.layer.4.attention.k_lin",
+    "scale": 0.12508372910371737
+  },
+  {
+    "step": 1049,
+    "layer": "distilbert.transformer.layer.4.attention.v_lin",
+    "scale": 0.12508372910371737
+  },
+  {
+    "step": 1199,
+    "layer": "distilbert.transformer.layer.3.ffn.lin1",
+    "scale": 0.1452148555699566
+  },
+  {
+    "step": 1199,
+    "layer": "distilbert.transformer.layer.4.ffn.lin2",
+    "scale": 0.02396380244056616
+  },
+  {
+    "step": 1199,
+    "layer": "distilbert.transformer.layer.2.ffn.lin2",
+    "scale": 0.022679147702535197
+  },
+  {
+    "step": 1349,
+    "layer": "distilbert.transformer.layer.5.attention.q_lin",
+    "scale": 0.12142062138312872
+  },
+  {
+    "step": 1349,
+    "layer": "distilbert.transformer.layer.5.attention.k_lin",
+    "scale": 0.12142062138312872
+  },
+  {
+    "step": 1349,
+    "layer": "distilbert.transformer.layer.5.attention.v_lin",
+    "scale": 0.12142062138312872
+  },
+  {
+    "step": 1499,
+    "layer": "distilbert.transformer.layer.3.ffn.lin2",
+    "scale": 0.014954265884829064
+  },
+  {
+    "step": 1499,
+    "layer": "classifier",
+    "scale": 0.015310291455015121
+  }
+]
