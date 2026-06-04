@@ -1,0 +1,19 @@
+{
+  "model": "bert-base",
+  "backend": "ort",
+  "batch": 64,
+  "seq": 128,
+  "git_commit": "b5b9919",
+  "timestamp": "2026-06-05T01:55:05",
+  "scheme": "fp16",
+  "temp_start": 63.0,
+  "sm_clock_mhz": 1800.0,
+  "weight_bytes": 437937152,
+  "error": null,
+  "latency_mean_ms": 202.9592,
+  "latency_std_ms": 0.4875,
+  "latency_p50_ms": 202.7783,
+  "latency_p90_ms": 203.4582,
+  "latency_p99_ms": 205.0346,
+  "throughput_samples_per_s": 315.33
+}

@@ -1,0 +1,138 @@
+{
+  "model": "bert-base",
+  "scheme": "w8a8",
+  "backend": "compile",
+  "batch": 16,
+  "seq": 32,
+  "git_commit": "b5b9919",
+  "timestamp": "2026-06-05T00:43:00",
+  "oom": false,
+  "error": null,
+  "temp_start": 54.0,
+  "sm_clock_mhz": 1800.0,
+  "power_w": 7.99,
+  "weight_bytes": 218972672,
+  "analytical_mem_bytes": 437945344,
+  "flops": 199053328,
+  "compile_time_s": 85.87994170188904,
+  "kernel_count": 558,
+  "kernel_mix": [
+    {
+      "name": "CUDAGraphTreeManager.record_function (dynamo_timed)",
+      "count": 2,
+      "cuda_time_ms": 1352.8618
+    },
+    {
+      "name": "Torch-Compiled Region: 1/5",
+      "count": 3,
+      "cuda_time_ms": 12.4171
+    },
+    {
+      "name": "triton_tem_fused_mul_1",
+      "count": 144,
+      "cuda_time_ms": 4.05
+    },
+    {
+      "name": "triton_tem_fused_mul_8",
+      "count": 36,
+      "cuda_time_ms": 2.5015
+    },
+    {
+      "name": "triton_tem_fused_mul_6",
+      "count": 36,
+      "cuda_time_ms": 2.2133
+    },
+    {
+      "name": "triton_red_fused__to_copy_add_amax_amin_clamp_div_gelu_maximum_minimum_mul_neg_reciprocal_view_zeros_like_7",
+      "count": 36,
+      "cuda_time_ms": 1.4878
+    },
+    {
+      "name": "fmha_cutlassF_f16_aligned_64x64_rf_sm80(PyTorchMemEffAttention::AttentionKernel<cutlass::half_t, cutlass::arch::Sm80, true, 64, 64, 64, true, true>::Params)",
+      "count": 36,
+      "cuda_time_ms": 0.6069
+    },
+    {
+      "name": "triton_poi_fused__scaled_dot_product_efficient_attention_2",
+      "count": 108,
+      "cuda_time_ms": 0.4157
+    },
+    {
+      "name": "triton_per_fused__to_copy_add_amax_amin_clamp_div_maximum_minimum_mul_native_layer_norm_neg_reciprocal_view_zeros_like_5",
+      "count": 36,
+      "cuda_time_ms": 0.3502
+    },
+    {
+      "name": "triton_per_fused__to_copy_add_amax_amin_clamp_div_maximum_minimum_mul_native_layer_norm_neg_reciprocal_view_zeros_like_9",
+      "count": 33,
+      "cuda_time_ms": 0.3299
+    },
+    {
+      "name": "triton_per_fused__to_copy_add_amax_amin_clamp_div_maximum_minimum_mul_neg_reciprocal_view_zeros_like_4",
+      "count": 36,
+      "cuda_time_ms": 0.3239
+    },
+    {
+      "name": "triton_poi_fused__scaled_dot_product_efficient_attention_3",
+      "count": 18,
+      "cuda_time_ms": 0.0477
+    },
+    {
+      "name": "triton_per_fused__to_copy_add_amax_amin_clamp_div_embedding_maximum_minimum_mul_native_layer_norm_neg_reciprocal_view_zeros_like_0",
+      "count": 3,
+      "cuda_time_ms": 0.0401
+    },
+    {
+      "name": "triton_per_fused__to_copy_add_native_layer_norm_10",
+      "count": 3,
+      "cuda_time_ms": 0.0245
+    },
+    {
+      "name": "triton_tem_fused__to_copy_add_clamp_mul_reciprocal_tanh_view_12",
+      "count": 3,
+      "cuda_time_ms": 0.0205
+    },
+    {
+      "name": "aten::fill_",
+      "count": 8,
+      "cuda_time_ms": 0.0106
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<long>, std::array<char*, 1ul> >(int, at::native::FillFunctor<long>, std::array<char*, 1ul>)",
+      "count": 8,
+      "cuda_time_ms": 0.0106
+    },
+    {
+      "name": "aten::_foreach_copy_",
+      "count": 3,
+      "cuda_time_ms": 0.007
+    },
+    {
+      "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<2>, at::native::(anonymous namespace)::UnaryOpFunctor<long, 2, 1, 1>, at::native::Copy<long, long> >(at::native::(anonymous namespace)::TensorListMetadata<2>, at::native::(anonymous namespace)::UnaryOpFunctor<long, 2, 1, 1>, at::native::Copy<long, long>)",
+      "count": 3,
+      "cuda_time_ms": 0.007
+    },
+    {
+      "name": "triton_per_fused__to_copy_add_amax_amin_clamp_div_maximum_minimum_mul_neg_reciprocal_view_zeros_like_11",
+      "count": 3,
+      "cuda_time_ms": 0.0052
+    }
+  ],
+  "int8_gemm_dispatched": false,
+  "temp_end": 54.0,
+  "latency_mean_ms": 7.0849,
+  "latency_std_ms": 0.7137,
+  "latency_p50_ms": 6.9311,
+  "latency_p90_ms": 7.3436,
+  "latency_p99_ms": 11.1097,
+  "latency_n": 300,
+  "peak_mem_mb": 371.91,
+  "throughput_samples_per_s": 2258.32,
+  "latency_cv": 0.1007,
+  "accuracy": {
+    "metric": "cosine_fidelity",
+    "cosine_sim": -0.003937,
+    "max_abs_diff": 6.769531,
+    "flag": true
+  }
+}

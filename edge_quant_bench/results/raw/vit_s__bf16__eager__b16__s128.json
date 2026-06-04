@@ -1,0 +1,139 @@
+{
+  "model": "vit-s",
+  "scheme": "bf16",
+  "backend": "eager",
+  "batch": 16,
+  "seq": 128,
+  "git_commit": "b5b9919",
+  "timestamp": "2026-06-05T00:04:44",
+  "oom": false,
+  "error": null,
+  "temp_start": 45.0,
+  "sm_clock_mhz": 2100.0,
+  "power_w": 5.89,
+  "weight_bytes": 44101328,
+  "analytical_mem_bytes": 88202656,
+  "flops": 135749253120,
+  "compile_time_s": 0.0,
+  "kernel_count": 807,
+  "kernel_mix": [
+    {
+      "name": "aten::addmm",
+      "count": 147,
+      "cuda_time_ms": 18.55
+    },
+    {
+      "name": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_relu_f2f_stages_32x1_tn",
+      "count": 72,
+      "cuda_time_ms": 12.2028
+    },
+    {
+      "name": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_relu_f2f_tn",
+      "count": 36,
+      "cuda_time_ms": 4.6631
+    },
+    {
+      "name": "aten::cudnn_convolution",
+      "count": 3,
+      "cuda_time_ms": 3.9333
+    },
+    {
+      "name": "sm80_xmma_fprop_implicit_gemm_indexed_bf16bf16_bf16f32_f32_nhwckrsc_nhwc_tilesize256x64x32_stage3_warpsize4x1x1_g1_tensor16x8x16_execute_kernel__5x_cudnn",
+      "count": 3,
+      "cuda_time_ms": 3.2109
+    },
+    {
+      "name": "aten::_flash_attention_forward",
+      "count": 36,
+      "cuda_time_ms": 2.8418
+    },
+    {
+      "name": "void pytorch_flash::flash_fwd_kernel<pytorch_flash::Flash_fwd_kernel_traits<64, 128, 128, 4, false, false, cutlass::bfloat16_t, pytorch_flash::Flash_kernel_traits<64, 128, 128, 4, cutlass::bfloat16_t> >, false, false, false, false, false, true, false>(pytorch_flash::Flash_fwd_params)",
+      "count": 36,
+      "cuda_time_ms": 2.8418
+    },
+    {
+      "name": "aten::native_layer_norm",
+      "count": 75,
+      "cuda_time_ms": 1.9527
+    },
+    {
+      "name": "void at::native::(anonymous namespace)::vectorized_layer_norm_kernel<c10::BFloat16, float>(int, float, c10::BFloat16 const*, c10::BFloat16 const*, c10::BFloat16 const*, float*, float*, c10::BFloat16*)",
+      "count": 75,
+      "cuda_time_ms": 1.9527
+    },
+    {
+      "name": "aten::gelu",
+      "count": 36,
+      "cuda_time_ms": 1.8402
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::GeluCUDAKernelImpl(at::TensorIteratorBase&, at::native::GeluType)::{lambda()#2}::operator()() const::{lambda()#4}::operator()() const::{lambda(c10::BFloat16)#1}, std::array<char*, 2ul> >(int, at::native::GeluCUDAKernelImpl(at::TensorIteratorBase&, at::native::GeluType)::{lambda()#2}::operator()() const::{lambda()#4}::operator()() const::{lambda(c10::BFloat16)#1}, std::array<char*, 2ul>)",
+      "count": 36,
+      "cuda_time_ms": 1.8402
+    },
+    {
+      "name": "void cutlass::Kernel2<cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_64x64_32x6_tn_align8>(cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_64x64_32x6_tn_align8::Params)",
+      "count": 36,
+      "cuda_time_ms": 1.6269
+    },
+    {
+      "name": "void cudnn::engines_precompiled::nchwToNhwcKernel<__nv_bfloat16, __nv_bfloat16, float, false, true, (cudnnKernelDataType_t)0>(cudnn::engines_precompiled::nchw2nhwc_params_t<float>, __nv_bfloat16 const*, __nv_bfloat16*)",
+      "count": 6,
+      "cuda_time_ms": 0.6296
+    },
+    {
+      "name": "aten::add",
+      "count": 75,
+      "cuda_time_ms": 0.4762
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctor_add<c10::BFloat16>, std::array<char*, 3ul> >(int, at::native::CUDAFunctor_add<c10::BFloat16>, std::array<char*, 3ul>)",
+      "count": 72,
+      "cuda_time_ms": 0.434
+    },
+    {
+      "name": "aten::cat",
+      "count": 3,
+      "cuda_time_ms": 0.1618
+    },
+    {
+      "name": "void at::native::(anonymous namespace)::CatArrayBatchedCopy<at::native::(anonymous namespace)::OpaqueType<2u>, unsigned int, 3, 64, 64>(at::native::(anonymous namespace)::OpaqueType<2u>*, at::native::(anonymous namespace)::CatArrInputTensorMetadata<at::native::(anonymous namespace)::OpaqueType<2u>, unsigned int, 64, 64>, at::native::(anonymous namespace)::TensorSizeStride<unsigned int, 4u>, int, unsigned int)",
+      "count": 3,
+      "cuda_time_ms": 0.1618
+    },
+    {
+      "name": "Memset (Device)",
+      "count": 42,
+      "cuda_time_ms": 0.0932
+    },
+    {
+      "name": "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::CUDAFunctor_add<c10::BFloat16> >(at::TensorIteratorBase&, at::native::CUDAFunctor_add<c10::BFloat16> const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::CUDAFunctor_add<c10::BFloat16> >(at::TensorIteratorBase&, at::native::CUDAFunctor_add<c10::BFloat16> const&)::{lambda(int)#1})",
+      "count": 6,
+      "cuda_time_ms": 0.0916
+    },
+    {
+      "name": "aten::add_",
+      "count": 3,
+      "cuda_time_ms": 0.0494
+    }
+  ],
+  "int8_gemm_dispatched": false,
+  "temp_end": 52.0,
+  "latency_mean_ms": 12.2887,
+  "latency_std_ms": 0.4419,
+  "latency_p50_ms": 12.2448,
+  "latency_p90_ms": 12.7607,
+  "latency_p99_ms": 12.9338,
+  "latency_n": 300,
+  "peak_mem_mb": 134.39,
+  "throughput_samples_per_s": 1302.01,
+  "latency_cv": 0.036,
+  "accuracy": {
+    "metric": "output_fidelity",
+    "cosine_sim": -1.0,
+    "max_abs_diff": -1.0,
+    "flag": true,
+    "error": "Input type (c10::BFloat16) and bias type (c10::Half) should be the same"
+  }
+}

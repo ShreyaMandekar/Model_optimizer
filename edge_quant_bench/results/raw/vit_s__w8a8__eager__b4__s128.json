@@ -1,0 +1,138 @@
+{
+  "model": "vit-s",
+  "scheme": "w8a8",
+  "backend": "eager",
+  "batch": 4,
+  "seq": 128,
+  "git_commit": "b5b9919",
+  "timestamp": "2026-06-05T00:22:50",
+  "oom": false,
+  "error": null,
+  "temp_start": 54.0,
+  "sm_clock_mhz": 2100.0,
+  "power_w": 11.96,
+  "weight_bytes": 44101328,
+  "analytical_mem_bytes": 88202656,
+  "flops": 589303044,
+  "compile_time_s": 0.0,
+  "kernel_count": 23910,
+  "kernel_mix": [
+    {
+      "name": "aten::mul",
+      "count": 588,
+      "cuda_time_ms": 6.0513
+    },
+    {
+      "name": "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl<at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl<at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int)#1})",
+      "count": 441,
+      "cuda_time_ms": 5.8837
+    },
+    {
+      "name": "aten::_int_mm",
+      "count": 147,
+      "cuda_time_ms": 5.8519
+    },
+    {
+      "name": "ampere_igemm_int8_128x128_ldg4_nn",
+      "count": 144,
+      "cuda_time_ms": 5.8519
+    },
+    {
+      "name": "aten::copy_",
+      "count": 2349,
+      "cuda_time_ms": 5.7202
+    },
+    {
+      "name": "aten::_local_scalar_dense",
+      "count": 5256,
+      "cuda_time_ms": 4.9738
+    },
+    {
+      "name": "Memcpy DtoH (Device -> Pinned)",
+      "count": 5256,
+      "cuda_time_ms": 4.9738
+    },
+    {
+      "name": "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#2}::operator()() const::{lambda(signed char)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#2}::operator()() const::{lambda(signed char)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#2}::operator()() const::{lambda(signed char)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#2}::operator()() const::{lambda(signed char)#1} const&)::{lambda(int)#1})",
+      "count": 147,
+      "cuda_time_ms": 2.1361
+    },
+    {
+      "name": "aten::add",
+      "count": 222,
+      "cuda_time_ms": 1.8501
+    },
+    {
+      "name": "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl<at::native::CUDAFunctor_add<float> >(at::TensorIteratorBase&, at::native::CUDAFunctor_add<float> const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl<at::native::CUDAFunctor_add<float> >(at::TensorIteratorBase&, at::native::CUDAFunctor_add<float> const&)::{lambda(int)#1})",
+      "count": 147,
+      "cuda_time_ms": 1.6714
+    },
+    {
+      "name": "Memcpy DtoH (Device -> Pageable)",
+      "count": 1752,
+      "cuda_time_ms": 1.6587
+    },
+    {
+      "name": "aten::cat",
+      "count": 1026,
+      "cuda_time_ms": 1.5681
+    },
+    {
+      "name": "void at::native::(anonymous namespace)::CatArrayBatchedCopy_contig<at::native::(anonymous namespace)::OpaqueType<1u>, unsigned int, 1, 128, 1>(at::native::(anonymous namespace)::OpaqueType<1u>*, at::native::(anonymous namespace)::CatArrInputTensorMetadata<at::native::(anonymous namespace)::OpaqueType<1u>, unsigned int, 128, 1>, at::native::(anonymous namespace)::TensorSizeStride<unsigned int, 4u>, int, unsigned int)",
+      "count": 1023,
+      "cuda_time_ms": 1.5259
+    },
+    {
+      "name": "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::CUDAFunctor_add<c10::Half> >(at::TensorIteratorBase&, at::native::CUDAFunctor_add<c10::Half> const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::CUDAFunctor_add<c10::Half> >(at::TensorIteratorBase&, at::native::CUDAFunctor_add<c10::Half> const&)::{lambda(int)#1})",
+      "count": 153,
+      "cuda_time_ms": 1.3035
+    },
+    {
+      "name": "aten::add_",
+      "count": 150,
+      "cuda_time_ms": 1.2883
+    },
+    {
+      "name": "aten::cudnn_convolution",
+      "count": 3,
+      "cuda_time_ms": 1.0547
+    },
+    {
+      "name": "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#2}::operator()() const::{lambda(signed char)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#2}::operator()() const::{lambda(signed char)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)",
+      "count": 147,
+      "cuda_time_ms": 1.0534
+    },
+    {
+      "name": "sm80_xmma_fprop_implicit_gemm_indexed_f16f16_f16f32_f32_nhwckrsc_nhwc_tilesize256x64x32_stage3_warpsize4x1x1_g1_tensor16x8x16_execute_kernel__5x_cudnn",
+      "count": 3,
+      "cuda_time_ms": 0.81
+    },
+    {
+      "name": "aten::clamp",
+      "count": 294,
+      "cuda_time_ms": 0.7861
+    },
+    {
+      "name": "aten::_flash_attention_forward",
+      "count": 36,
+      "cuda_time_ms": 0.7795
+    }
+  ],
+  "int8_gemm_dispatched": false,
+  "temp_end": 54.0,
+  "latency_mean_ms": 80.3749,
+  "latency_std_ms": 5.7057,
+  "latency_p50_ms": 77.9465,
+  "latency_p90_ms": 87.9018,
+  "latency_p99_ms": 97.2598,
+  "latency_n": 300,
+  "peak_mem_mb": 94.03,
+  "throughput_samples_per_s": 49.77,
+  "latency_cv": 0.071,
+  "accuracy": {
+    "metric": "output_fidelity",
+    "cosine_sim": 0.011024,
+    "max_abs_diff": 2.224609,
+    "flag": true
+  }
+}

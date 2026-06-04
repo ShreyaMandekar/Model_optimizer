@@ -1,0 +1,138 @@
+{
+  "model": "bert-base",
+  "scheme": "fp16",
+  "backend": "compile",
+  "batch": 1,
+  "seq": 512,
+  "git_commit": "b5b9919",
+  "timestamp": "2026-06-05T00:51:01",
+  "oom": false,
+  "error": null,
+  "temp_start": 54.0,
+  "sm_clock_mhz": 1800.0,
+  "power_w": 9.91,
+  "weight_bytes": 218972672,
+  "analytical_mem_bytes": 437945344,
+  "flops": 86984491008,
+  "compile_time_s": 0.007833003997802734,
+  "kernel_count": 990,
+  "kernel_mix": [
+    {
+      "name": "aten::addmm",
+      "count": 219,
+      "cuda_time_ms": 15.523
+    },
+    {
+      "name": "ampere_fp16_s1688gemm_fp16_256x64_ldg8_relu_f2f_stages_32x1_tn",
+      "count": 36,
+      "cuda_time_ms": 5.633
+    },
+    {
+      "name": "void cutlass::Kernel2<cutlass_80_tensorop_f16_s16816gemm_relu_f16_128x64_64x4_tn_align8>(cutlass_80_tensorop_f16_s16816gemm_relu_f16_128x64_64x4_tn_align8::Params)",
+      "count": 36,
+      "cuda_time_ms": 4.9361
+    },
+    {
+      "name": "void cutlass::Kernel2<cutlass_80_tensorop_f16_s16816gemm_relu_f16_128x64_32x6_tn_align8>(cutlass_80_tensorop_f16_s16816gemm_relu_f16_128x64_32x6_tn_align8::Params)",
+      "count": 144,
+      "cuda_time_ms": 4.9063
+    },
+    {
+      "name": "aten::_flash_attention_forward",
+      "count": 36,
+      "cuda_time_ms": 1.6062
+    },
+    {
+      "name": "void pytorch_flash::flash_fwd_kernel<pytorch_flash::Flash_fwd_kernel_traits<64, 128, 128, 4, false, false, cutlass::half_t, pytorch_flash::Flash_kernel_traits<64, 128, 128, 4, cutlass::half_t> >, false, false, false, false, true, true, false>(pytorch_flash::Flash_fwd_params)",
+      "count": 36,
+      "cuda_time_ms": 1.6062
+    },
+    {
+      "name": "aten::native_layer_norm",
+      "count": 75,
+      "cuda_time_ms": 0.621
+    },
+    {
+      "name": "void at::native::(anonymous namespace)::vectorized_layer_norm_kernel<c10::Half, float>(int, float, c10::Half const*, c10::Half const*, c10::Half const*, float*, float*, c10::Half*)",
+      "count": 75,
+      "cuda_time_ms": 0.621
+    },
+    {
+      "name": "aten::gelu",
+      "count": 36,
+      "cuda_time_ms": 0.5154
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::GeluCUDAKernelImpl(at::TensorIteratorBase&, at::native::GeluType)::{lambda()#2}::operator()() const::{lambda()#3}::operator()() const::{lambda(c10::Half)#1}, std::array<char*, 2ul> >(int, at::native::GeluCUDAKernelImpl(at::TensorIteratorBase&, at::native::GeluType)::{lambda()#2}::operator()() const::{lambda()#3}::operator()() const::{lambda(c10::Half)#1}, std::array<char*, 2ul>)",
+      "count": 36,
+      "cuda_time_ms": 0.5154
+    },
+    {
+      "name": "aten::add",
+      "count": 78,
+      "cuda_time_ms": 0.2316
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctor_add<c10::Half>, std::array<char*, 3ul> >(int, at::native::CUDAFunctor_add<c10::Half>, std::array<char*, 3ul>)",
+      "count": 78,
+      "cuda_time_ms": 0.2316
+    },
+    {
+      "name": "aten::index_select",
+      "count": 9,
+      "cuda_time_ms": 0.1432
+    },
+    {
+      "name": "void at::native::(anonymous namespace)::indexSelectLargeIndex<c10::Half, long, unsigned int, 2, 2, -2, true>(at::cuda::detail::TensorInfo<c10::Half, unsigned int>, at::cuda::detail::TensorInfo<c10::Half const, unsigned int>, at::cuda::detail::TensorInfo<long const, unsigned int>, int, int, unsigned int, unsigned int, long)",
+      "count": 9,
+      "cuda_time_ms": 0.1432
+    },
+    {
+      "name": "std::enable_if<!(false), void>::type internal::gemvx::kernel<int, int, __half, __half, __half, float, false, true, true, false, 7, false, cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__half const>, cublasGemvTensorStridedBatched<__half const>, cublasGemvTensorStridedBatched<__half>, float> >(cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__half const>, cublasGemvTensorStridedBatched<__half const>, cublasGemvTensorStridedBatched<__half>, float>)",
+      "count": 3,
+      "cuda_time_ms": 0.0324
+    },
+    {
+      "name": "Memset (Device)",
+      "count": 36,
+      "cuda_time_ms": 0.0152
+    },
+    {
+      "name": "aten::gather",
+      "count": 3,
+      "cuda_time_ms": 0.014
+    },
+    {
+      "name": "void at::native::_scatter_gather_elementwise_kernel<128, 4, at::native::_cuda_scatter_gather_internal_kernel<false, at::native::OpaqueType<8> >::operator()<at::native::TensorAssign>(at::TensorIterator&, long, long, long, at::native::TensorAssign const&)::{lambda(int)#1}>(int, at::native::_cuda_scatter_gather_internal_kernel<false, at::native::OpaqueType<8> >::operator()<at::native::TensorAssign>(at::TensorIterator&, long, long, long, at::native::TensorAssign const&)::{lambda(int)#1})",
+      "count": 3,
+      "cuda_time_ms": 0.014
+    },
+    {
+      "name": "aten::copy_",
+      "count": 3,
+      "cuda_time_ms": 0.0114
+    },
+    {
+      "name": "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#11}::operator()() const::{lambda(bool)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#11}::operator()() const::{lambda(bool)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)",
+      "count": 3,
+      "cuda_time_ms": 0.0114
+    }
+  ],
+  "int8_gemm_dispatched": false,
+  "temp_end": 54.0,
+  "latency_mean_ms": 7.1167,
+  "latency_std_ms": 0.1731,
+  "latency_p50_ms": 7.0889,
+  "latency_p90_ms": 7.2477,
+  "latency_p99_ms": 8.0055,
+  "latency_n": 300,
+  "peak_mem_mb": 479.99,
+  "throughput_samples_per_s": 140.51,
+  "latency_cv": 0.0243,
+  "accuracy": {
+    "metric": "cosine_fidelity",
+    "cosine_sim": -0.012148,
+    "max_abs_diff": 6.849609,
+    "flag": true
+  }
+}

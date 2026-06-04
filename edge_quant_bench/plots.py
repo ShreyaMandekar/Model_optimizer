@@ -343,6 +343,9 @@ def fig7_decision_table(df):
 
     rows = []
     for (kind, regime), group in pivot.groupby(level=[0, 1]):
+        group = group.dropna()
+        if group.empty:
+            continue
         best_scheme = group.idxmax()[-1]
         best_val = group.max()
         rows.append({

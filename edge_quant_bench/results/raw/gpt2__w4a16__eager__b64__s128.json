@@ -1,0 +1,138 @@
+{
+  "model": "gpt2",
+  "scheme": "w4a16",
+  "backend": "eager",
+  "batch": 64,
+  "seq": 128,
+  "git_commit": "b5b9919",
+  "timestamp": "2026-06-04T10:41:49",
+  "oom": false,
+  "error": null,
+  "temp_start": 54.0,
+  "sm_clock_mhz": 2100.0,
+  "power_w": 10.53,
+  "weight_bytes": 248879616,
+  "analytical_mem_bytes": 497759232,
+  "flops": 1393538629632,
+  "compile_time_s": 0.0,
+  "kernel_count": 1491,
+  "kernel_mix": [
+    {
+      "name": "aten::addmm",
+      "count": 144,
+      "cuda_time_ms": 166.7405
+    },
+    {
+      "name": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_relu_f2f_stages_32x1_nn",
+      "count": 144,
+      "cuda_time_ms": 166.7405
+    },
+    {
+      "name": "aten::mul",
+      "count": 144,
+      "cuda_time_ms": 72.5626
+    },
+    {
+      "name": "aten::add",
+      "count": 147,
+      "cuda_time_ms": 50.5245
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::AUnaryFunctor<c10::BFloat16, c10::BFloat16, c10::BFloat16, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 2ul> >(int, at::native::AUnaryFunctor<c10::BFloat16, c10::BFloat16, c10::BFloat16, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 2ul>)",
+      "count": 108,
+      "cuda_time_ms": 47.8737
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctor_add<c10::BFloat16>, std::array<char*, 3ul> >(int, at::native::CUDAFunctor_add<c10::BFloat16>, std::array<char*, 3ul>)",
+      "count": 108,
+      "cuda_time_ms": 33.976
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::BinaryFunctor<c10::BFloat16, c10::BFloat16, c10::BFloat16, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 3ul> >(int, at::native::BinaryFunctor<c10::BFloat16, c10::BFloat16, c10::BFloat16, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 3ul>)",
+      "count": 36,
+      "cuda_time_ms": 24.6889
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctorOnSelf_add<c10::BFloat16>, std::array<char*, 2ul> >(int, at::native::CUDAFunctorOnSelf_add<c10::BFloat16>, std::array<char*, 2ul>)",
+      "count": 36,
+      "cuda_time_ms": 16.3567
+    },
+    {
+      "name": "aten::pow",
+      "count": 36,
+      "cuda_time_ms": 16.3453
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::pow_tensor_scalar_kernel_impl<c10::BFloat16, c10::BFloat16>(at::TensorIteratorBase&, c10::BFloat16)::{lambda(c10::BFloat16)#2}, std::array<char*, 2ul> >(int, at::native::(anonymous namespace)::pow_tensor_scalar_kernel_impl<c10::BFloat16, c10::BFloat16>(at::TensorIteratorBase&, c10::BFloat16)::{lambda(c10::BFloat16)#2}, std::array<char*, 2ul>)",
+      "count": 36,
+      "cuda_time_ms": 16.3453
+    },
+    {
+      "name": "aten::tanh",
+      "count": 36,
+      "cuda_time_ms": 16.29
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::tanh_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#4}::operator()() const::{lambda(c10::BFloat16)#1}, std::array<char*, 2ul> >(int, at::native::tanh_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#4}::operator()() const::{lambda(c10::BFloat16)#1}, std::array<char*, 2ul>)",
+      "count": 36,
+      "cuda_time_ms": 16.29
+    },
+    {
+      "name": "aten::cat",
+      "count": 72,
+      "cuda_time_ms": 15.0069
+    },
+    {
+      "name": "void at::native::(anonymous namespace)::CatArrayBatchedCopy<at::native::(anonymous namespace)::OpaqueType<2u>, unsigned int, 4, 64, 64>(at::native::(anonymous namespace)::OpaqueType<2u>*, at::native::(anonymous namespace)::CatArrInputTensorMetadata<at::native::(anonymous namespace)::OpaqueType<2u>, unsigned int, 64, 64>, at::native::(anonymous namespace)::TensorSizeStride<unsigned int, 4u>, int, unsigned int)",
+      "count": 72,
+      "cuda_time_ms": 15.0069
+    },
+    {
+      "name": "aten::_flash_attention_forward",
+      "count": 36,
+      "cuda_time_ms": 7.1097
+    },
+    {
+      "name": "void pytorch_flash::flash_fwd_kernel<pytorch_flash::Flash_fwd_kernel_traits<64, 128, 128, 4, false, false, cutlass::bfloat16_t, pytorch_flash::Flash_kernel_traits<64, 128, 128, 4, cutlass::bfloat16_t> >, false, true, false, false, true, true, false>(pytorch_flash::Flash_fwd_params)",
+      "count": 36,
+      "cuda_time_ms": 7.1097
+    },
+    {
+      "name": "aten::native_layer_norm",
+      "count": 75,
+      "cuda_time_ms": 6.5523
+    },
+    {
+      "name": "void at::native::(anonymous namespace)::vectorized_layer_norm_kernel<c10::BFloat16, float>(int, float, c10::BFloat16 const*, c10::BFloat16 const*, c10::BFloat16 const*, float*, float*, c10::BFloat16*)",
+      "count": 75,
+      "cuda_time_ms": 6.5523
+    },
+    {
+      "name": "aten::index_select",
+      "count": 6,
+      "cuda_time_ms": 0.6599
+    },
+    {
+      "name": "void at::native::(anonymous namespace)::indexSelectLargeIndex<c10::BFloat16, long, unsigned int, 2, 2, -2, true>(at::cuda::detail::TensorInfo<c10::BFloat16, unsigned int>, at::cuda::detail::TensorInfo<c10::BFloat16 const, unsigned int>, at::cuda::detail::TensorInfo<long const, unsigned int>, int, int, unsigned int, unsigned int, long)",
+      "count": 6,
+      "cuda_time_ms": 0.6599
+    }
+  ],
+  "int8_gemm_dispatched": false,
+  "temp_end": 54.0,
+  "latency_mean_ms": 116.0646,
+  "latency_std_ms": 0.7182,
+  "latency_p50_ms": 115.9839,
+  "latency_p90_ms": 116.0682,
+  "latency_p99_ms": 120.8268,
+  "latency_n": 300,
+  "peak_mem_mb": 1095.79,
+  "throughput_samples_per_s": 551.42,
+  "latency_cv": 0.0062,
+  "accuracy": {
+    "metric": "perplexity",
+    "ppl": -1.0,
+    "fp16_ppl_ref": null,
+    "flag": false
+  }
+}

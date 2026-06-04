@@ -53,7 +53,8 @@ def _nlp_input(batch, seq):
     return {"input_ids": ids, "attention_mask": mask}
 
 def _vit_input(batch, seq=None):
-    return {"pixel_values": torch.randn(batch, 3, 224, 224, device="cuda")}
+    # timm VisionTransformer.forward(x) takes a plain tensor, not pixel_values
+    return torch.randn(batch, 3, 224, 224, device="cuda")
 
 def _cnn_input(batch, seq=None):
     return torch.randn(batch, 3, 224, 224, device="cuda")

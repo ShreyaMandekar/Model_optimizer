@@ -1,0 +1,139 @@
+{
+  "model": "vit-s",
+  "scheme": "w4a16",
+  "backend": "compile",
+  "batch": 4,
+  "seq": 128,
+  "git_commit": "b5b9919",
+  "timestamp": "2026-06-05T00:17:29",
+  "oom": false,
+  "error": null,
+  "temp_start": 54.0,
+  "sm_clock_mhz": 2100.0,
+  "power_w": 11.76,
+  "weight_bytes": 44101328,
+  "analytical_mem_bytes": 88202656,
+  "flops": 469986816,
+  "compile_time_s": 75.18450093269348,
+  "kernel_count": 567,
+  "kernel_mix": [
+    {
+      "name": "CUDAGraphTreeManager.record_function (dynamo_timed)",
+      "count": 2,
+      "cuda_time_ms": 797.6337
+    },
+    {
+      "name": "Torch-Compiled Region: 0/5",
+      "count": 3,
+      "cuda_time_ms": 41.7405
+    },
+    {
+      "name": "void at::native::tinygemm_m16n8k16_chunk_kernel<at::native::ALayout_RM<(at::native::KReductionType)0>, at::native::BLayout_TC_int4<8, 128>, at::native::ALayout_RM<(at::native::KReductionType)0>, 8, 8>(void const*, void const*, void const*, void*, int, int, int, int, int, int)",
+      "count": 147,
+      "cuda_time_ms": 38.2375
+    },
+    {
+      "name": "sm80_xmma_fprop_implicit_gemm_indexed_bf16bf16_bf16f32_f32_nhwckrsc_nhwc_tilesize256x64x32_stage3_warpsize4x1x1_g1_tensor16x8x16_execute_kernel__5x_cudnn",
+      "count": 3,
+      "cuda_time_ms": 0.8077
+    },
+    {
+      "name": "void pytorch_flash::flash_fwd_kernel<pytorch_flash::Flash_fwd_kernel_traits<64, 128, 128, 4, false, false, cutlass::bfloat16_t, pytorch_flash::Flash_kernel_traits<64, 128, 128, 4, cutlass::bfloat16_t> >, false, false, false, false, false, true, false>(pytorch_flash::Flash_fwd_params)",
+      "count": 36,
+      "cuda_time_ms": 0.7544
+    },
+    {
+      "name": "triton_poi_fused__weight_int4pack_mm_constant_pad_nd_10",
+      "count": 36,
+      "cuda_time_ms": 0.5425
+    },
+    {
+      "name": "triton_poi_fused__weight_int4pack_mm_constant_pad_nd_12",
+      "count": 33,
+      "cuda_time_ms": 0.2123
+    },
+    {
+      "name": "void cudnn::engines_precompiled::nchwToNhwcKernel<__nv_bfloat16, __nv_bfloat16, float, false, true, (cudnnKernelDataType_t)0>(cudnn::engines_precompiled::nchw2nhwc_params_t<float>, __nv_bfloat16 const*, __nv_bfloat16*)",
+      "count": 6,
+      "cuda_time_ms": 0.2002
+    },
+    {
+      "name": "triton_poi_fused__weight_int4pack_mm_constant_pad_nd_9",
+      "count": 36,
+      "cuda_time_ms": 0.1894
+    },
+    {
+      "name": "triton_per_fused_add_native_layer_norm_13",
+      "count": 33,
+      "cuda_time_ms": 0.1267
+    },
+    {
+      "name": "triton_per_fused_add_native_layer_norm_11",
+      "count": 36,
+      "cuda_time_ms": 0.1222
+    },
+    {
+      "name": "triton_poi_fused__weight_int4pack_mm_constant_pad_nd_7",
+      "count": 36,
+      "cuda_time_ms": 0.1113
+    },
+    {
+      "name": "triton_poi_fused__scaled_dot_product_flash_attention_6",
+      "count": 36,
+      "cuda_time_ms": 0.099
+    },
+    {
+      "name": "triton_poi_fused__scaled_dot_product_flash_attention_5",
+      "count": 36,
+      "cuda_time_ms": 0.0989
+    },
+    {
+      "name": "triton_poi_fused__scaled_dot_product_flash_attention_4",
+      "count": 36,
+      "cuda_time_ms": 0.0983
+    },
+    {
+      "name": "aten::_foreach_copy_",
+      "count": 3,
+      "cuda_time_ms": 0.0455
+    },
+    {
+      "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<2>, at::native::(anonymous namespace)::UnaryOpFunctor<c10::BFloat16, 2, 1, 1>, at::native::Copy<float, float> >(at::native::(anonymous namespace)::TensorListMetadata<2>, at::native::(anonymous namespace)::UnaryOpFunctor<c10::BFloat16, 2, 1, 1>, at::native::Copy<float, float>)",
+      "count": 3,
+      "cuda_time_ms": 0.0455
+    },
+    {
+      "name": "triton_poi_fused__weight_int4pack_mm_constant_pad_nd_3",
+      "count": 3,
+      "cuda_time_ms": 0.0277
+    },
+    {
+      "name": "triton_poi_fused_add_cat_native_layer_norm_2",
+      "count": 3,
+      "cuda_time_ms": 0.0267
+    },
+    {
+      "name": "Memset (Device)",
+      "count": 6,
+      "cuda_time_ms": 0.0243
+    }
+  ],
+  "int8_gemm_dispatched": false,
+  "temp_end": 54.0,
+  "latency_mean_ms": 15.9068,
+  "latency_std_ms": 0.3211,
+  "latency_p50_ms": 15.8484,
+  "latency_p90_ms": 16.2815,
+  "latency_p99_ms": 17.1853,
+  "latency_n": 300,
+  "peak_mem_mb": 74.58,
+  "throughput_samples_per_s": 251.46,
+  "latency_cv": 0.0202,
+  "accuracy": {
+    "metric": "output_fidelity",
+    "cosine_sim": -1.0,
+    "max_abs_diff": -1.0,
+    "flag": true,
+    "error": "Input type (c10::BFloat16) and bias type (c10::Half) should be the same"
+  }
+}

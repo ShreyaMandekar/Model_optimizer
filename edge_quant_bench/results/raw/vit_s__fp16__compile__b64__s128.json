@@ -1,0 +1,138 @@
+{
+  "model": "vit-s",
+  "scheme": "fp16",
+  "backend": "compile",
+  "batch": 64,
+  "seq": 128,
+  "git_commit": "b5b9919",
+  "timestamp": "2026-06-04T14:19:53",
+  "oom": false,
+  "error": null,
+  "temp_start": 54.0,
+  "sm_clock_mhz": 2100.0,
+  "power_w": 6.09,
+  "weight_bytes": 44101328,
+  "analytical_mem_bytes": 88202656,
+  "flops": 542997012480,
+  "compile_time_s": 0.03998732566833496,
+  "kernel_count": 348,
+  "kernel_mix": [
+    {
+      "name": "CUDAGraphTreeManager.record_function (dynamo_timed)",
+      "count": 2,
+      "cuda_time_ms": 292.5397
+    },
+    {
+      "name": "Torch-Compiled Region: 0/3",
+      "count": 3,
+      "cuda_time_ms": 114.9341
+    },
+    {
+      "name": "ampere_fp16_s1688gemm_fp16_128x128_ldg8_f2f_tn",
+      "count": 72,
+      "cuda_time_ms": 29.293
+    },
+    {
+      "name": "ampere_fp16_s1688gemm_fp16_128x128_ldg8_f2f_stages_32x1_tn",
+      "count": 36,
+      "cuda_time_ms": 23.3509
+    },
+    {
+      "name": "ampere_fp16_s1688gemm_fp16_128x128_ldg8_relu_f2f_stages_32x1_tn",
+      "count": 36,
+      "cuda_time_ms": 17.6934
+    },
+    {
+      "name": "triton_poi_fused_gelu_4",
+      "count": 36,
+      "cuda_time_ms": 10.9298
+    },
+    {
+      "name": "void pytorch_flash::flash_fwd_kernel<pytorch_flash::Flash_fwd_kernel_traits<64, 128, 128, 4, false, false, cutlass::half_t, pytorch_flash::Flash_kernel_traits<64, 128, 128, 4, cutlass::half_t> >, false, false, false, false, false, true, false>(pytorch_flash::Flash_fwd_params)",
+      "count": 36,
+      "cuda_time_ms": 10.8658
+    },
+    {
+      "name": "sm80_xmma_fprop_implicit_gemm_indexed_f16f16_f16f32_f32_nhwckrsc_nhwc_tilesize256x64x32_stage3_warpsize4x1x1_g1_tensor16x8x16_execute_kernel__5x_cudnn",
+      "count": 3,
+      "cuda_time_ms": 10.7201
+    },
+    {
+      "name": "triton_per_fused_add_native_layer_norm_6",
+      "count": 33,
+      "cuda_time_ms": 5.0975
+    },
+    {
+      "name": "triton_per_fused_add_native_layer_norm_5",
+      "count": 33,
+      "cuda_time_ms": 2.7584
+    },
+    {
+      "name": "void cudnn::engines_precompiled::nchwToNhwcKernel<__half, __half, float, false, true, (cudnnKernelDataType_t)0>(cudnn::engines_precompiled::nchw2nhwc_params_t<float>, __half const*, __half*)",
+      "count": 6,
+      "cuda_time_ms": 2.5144
+    },
+    {
+      "name": "Memset (Device)",
+      "count": 6,
+      "cuda_time_ms": 0.5621
+    },
+    {
+      "name": "aten::_foreach_copy_",
+      "count": 3,
+      "cuda_time_ms": 0.3653
+    },
+    {
+      "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<2>, at::native::(anonymous namespace)::UnaryOpFunctor<c10::Half, 2, 1, 1>, at::native::Copy<float, float> >(at::native::(anonymous namespace)::TensorListMetadata<2>, at::native::(anonymous namespace)::UnaryOpFunctor<c10::Half, 2, 1, 1>, at::native::Copy<float, float>)",
+      "count": 3,
+      "cuda_time_ms": 0.3653
+    },
+    {
+      "name": "triton_red_fused_add_cat_native_layer_norm_3",
+      "count": 3,
+      "cuda_time_ms": 0.36
+    },
+    {
+      "name": "triton_poi_fused_add_cat_native_layer_norm_2",
+      "count": 3,
+      "cuda_time_ms": 0.2425
+    },
+    {
+      "name": "triton_per_fused_add_native_layer_norm_7",
+      "count": 3,
+      "cuda_time_ms": 0.2186
+    },
+    {
+      "name": "triton_red_fused_add_cat_native_layer_norm_0",
+      "count": 3,
+      "cuda_time_ms": 0.1498
+    },
+    {
+      "name": "void cudnn::engines_precompiled::nhwcToNchwKernel<__half, __half, float, true, false, (cudnnKernelDataType_t)0>(cudnn::engines_precompiled::nhwc2nchw_params_t<float>, __half const*, __half*)",
+      "count": 3,
+      "cuda_time_ms": 0.145
+    },
+    {
+      "name": "ampere_fp16_s16816gemm_fp16_64x64_ldg8_relu_f2f_stages_64x5_tn",
+      "count": 3,
+      "cuda_time_ms": 0.0221
+    }
+  ],
+  "int8_gemm_dispatched": false,
+  "temp_end": 54.0,
+  "latency_mean_ms": 40.6265,
+  "latency_std_ms": 0.5879,
+  "latency_p50_ms": 40.6295,
+  "latency_p90_ms": 41.3046,
+  "latency_p99_ms": 41.8979,
+  "latency_n": 300,
+  "peak_mem_mb": 110.99,
+  "throughput_samples_per_s": 1575.33,
+  "latency_cv": 0.0145,
+  "accuracy": {
+    "metric": "output_fidelity",
+    "cosine_sim": 0.013959,
+    "max_abs_diff": 2.258789,
+    "flag": true
+  }
+}

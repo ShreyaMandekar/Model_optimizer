@@ -1,0 +1,113 @@
+{
+  "model": "distilbert-base",
+  "scheme": "fp16",
+  "backend": "compile",
+  "batch": 16,
+  "seq": 128,
+  "git_commit": "b5b9919",
+  "timestamp": "2026-06-04T09:11:59",
+  "oom": false,
+  "error": null,
+  "temp_start": 55.0,
+  "sm_clock_mhz": 2100.0,
+  "power_w": 10.69,
+  "weight_bytes": 132729856,
+  "analytical_mem_bytes": 265459712,
+  "flops": 173966622720,
+  "compile_time_s": 0.009739398956298828,
+  "kernel_count": 216,
+  "kernel_mix": [
+    {
+      "name": "CUDAGraphTreeManager.record_function (dynamo_timed)",
+      "count": 2,
+      "cuda_time_ms": 217.2092
+    },
+    {
+      "name": "Torch-Compiled Region: 1/3",
+      "count": 3,
+      "cuda_time_ms": 24.7877
+    },
+    {
+      "name": "ampere_fp16_s1688gemm_fp16_128x128_ldg8_f2f_tn",
+      "count": 36,
+      "cuda_time_ms": 8.8592
+    },
+    {
+      "name": "ampere_fp16_s1688gemm_fp16_128x128_ldg8_f2f_stages_32x1_tn",
+      "count": 18,
+      "cuda_time_ms": 6.9478
+    },
+    {
+      "name": "ampere_fp16_s1688gemm_fp16_128x128_ldg8_relu_f2f_tn",
+      "count": 54,
+      "cuda_time_ms": 5.4782
+    },
+    {
+      "name": "fmha_cutlassF_f16_aligned_64x64_rf_sm80(PyTorchMemEffAttention::AttentionKernel<cutlass::half_t, cutlass::arch::Sm80, true, 64, 64, 64, true, true>::Params)",
+      "count": 18,
+      "cuda_time_ms": 1.4787
+    },
+    {
+      "name": "triton_poi_fused_gelu_3",
+      "count": 18,
+      "cuda_time_ms": 1.1664
+    },
+    {
+      "name": "triton_per_fused_add_native_layer_norm_2",
+      "count": 36,
+      "cuda_time_ms": 0.3978
+    },
+    {
+      "name": "triton_poi_fused__scaled_dot_product_efficient_attention_1",
+      "count": 3,
+      "cuda_time_ms": 0.3264
+    },
+    {
+      "name": "triton_red_fused_add_embedding_native_layer_norm_0",
+      "count": 3,
+      "cuda_time_ms": 0.073
+    },
+    {
+      "name": "triton_poi_fused__scaled_dot_product_efficient_attention_4",
+      "count": 3,
+      "cuda_time_ms": 0.0602
+    },
+    {
+      "name": "aten::fill_",
+      "count": 8,
+      "cuda_time_ms": 0.0089
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<long>, std::array<char*, 1ul> >(int, at::native::FillFunctor<long>, std::array<char*, 1ul>)",
+      "count": 8,
+      "cuda_time_ms": 0.0089
+    },
+    {
+      "name": "aten::_foreach_copy_",
+      "count": 3,
+      "cuda_time_ms": 0.0074
+    },
+    {
+      "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<2>, at::native::(anonymous namespace)::UnaryOpFunctor<long, 2, 1, 1>, at::native::Copy<long, long> >(at::native::(anonymous namespace)::TensorListMetadata<2>, at::native::(anonymous namespace)::UnaryOpFunctor<long, 2, 1, 1>, at::native::Copy<long, long>)",
+      "count": 3,
+      "cuda_time_ms": 0.0074
+    }
+  ],
+  "int8_gemm_dispatched": false,
+  "temp_end": 54.0,
+  "latency_mean_ms": 8.6468,
+  "latency_std_ms": 0.1194,
+  "latency_p50_ms": 8.6095,
+  "latency_p90_ms": 8.8276,
+  "latency_p99_ms": 8.9747,
+  "latency_n": 300,
+  "peak_mem_mb": 277.77,
+  "throughput_samples_per_s": 1850.4,
+  "latency_cv": 0.0138,
+  "accuracy": {
+    "metric": "cosine_fidelity",
+    "cosine_sim": -0.003269,
+    "max_abs_diff": 6.736328,
+    "flag": true
+  }
+}
