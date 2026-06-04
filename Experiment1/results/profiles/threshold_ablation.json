@@ -1,0 +1,38 @@
+[
+  {
+    "threshold": 1.0,
+    "converted": 3,
+    "accuracy": 86.45833333333334,
+    "latency": 55.29716472625732
+  },
+  {
+    "threshold": 2.0,
+    "converted": 22,
+    "accuracy": 82.29166666666666,
+    "latency": 41.87293586730957
+  },
+  {
+    "threshold": 3.0,
+    "converted": 28,
+    "accuracy": 86.3425925925926,
+    "latency": 33.51114730834961
+  },
+  {
+    "threshold": 5.0,
+    "converted": 36,
+    "accuracy": 87.15277777777779,
+    "latency": 30.410782527923583
+  },
+  {
+    "threshold": 10.0,
+    "converted": 38,
+    "accuracy": 87.26851851851852,
+    "latency": 25.080169773101808
+  },
+  {
+    "threshold": 15.0,
+    "converted": 38,
+    "accuracy": 87.26851851851852,
+    "latency": 25.019059085845946
+  }
+]

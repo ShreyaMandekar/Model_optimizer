@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Large model artifacts
+*.onnx
+*.pt
+*.pth
+*.bin
+*.ckpt
+checkpoints/
+
+# Logs
+*.log
+logs/
+
+# Reference papers / office docs
+*.pdf
+*.docx
+
+# Internal task files
+TASK.md
+
+# OS
+.DS_Store
