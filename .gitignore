@@ -29,3 +29,29 @@ TASK.md
 
 # OS
 .DS_Store
+Thumbs.db
+
+# Archives
+*.zip
+
+# Jupyter (Shavak-specific / scratch notebooks)
+Config.ipynb
+
+# Paper source (local latex workspace)
+paper/
+
+# QAT dynamics run outputs (large parquet files)
+qat_dynamics/results/runs/
+qat_dynamics/results/audits/
+*.parquet
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Python packaging artifacts
+*.egg-info/
+dist/
+build/
+

@@ -151,7 +151,8 @@ class Controller:
             else:
                 self.cv_stable_steps[name] = 0
             if self.cv_stable_steps[name] >= CV_FREEZE_PATIENCE:
-                self._do_freeze(name, reason="cv_trigger")
+                if len(self.frozen_names()) < self.target_frozen:
+                    self._do_freeze(name, reason="cv_trigger")
                 self.cv_stable_steps[name] = 0
 
     # ------------------------------------------------------------------
@@ -172,10 +173,14 @@ class Controller:
             eligible = [n for n, s in self.state.items()
                         if s == LayerState.DYNAMIC and self._step >= self._freeze_phase_start]
             if eligible:
-                kl_scores = self.kl_fn(eligible)
-                for name, kl in kl_scores.items():
-                    if kl < KL_FREEZE_THRESHOLD:
-                        self._do_freeze(name, reason=f"kl_trigger kl={kl:.4f}")
+                capacity = self.target_frozen - len(self.frozen_names())
+                if capacity > 0:
+                    kl_scores = self.kl_fn(eligible)
+                    # freeze only the lowest-KL layers up to capacity (safest first)
+                    ranked = sorted(kl_scores.items(), key=lambda x: x[1])
+                    for name, kl in ranked[:capacity]:
+                        if kl < KL_FREEZE_THRESHOLD:
+                            self._do_freeze(name, reason=f"kl_trigger kl={kl:.4f}")
 
         # 3. Unfreeze audit (s3_reactive only)
         if self.strategy == "s3_reactive":
@@ -235,6 +240,8 @@ class Controller:
     def _do_freeze(self, name: str, reason: str = ""):
         if self.state[name] not in (LayerState.DYNAMIC,):
             return
+        if len(self.frozen_names()) >= self.target_frozen:
+            return  # matched-fraction cap
         layer = self._layers[name]
         scale = layer._last_mean_scale
         if scale is None:

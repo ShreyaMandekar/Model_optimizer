@@ -1,8 +1,9 @@
-"""Crash-safe sweep over the 2×4 grid × seeds × models.
+"""Crash-safe sequential sweep over the 2×4 grid × seeds × models.
 
+Runs one job at a time (single GPU — avoids OOM from parallel CUDA processes).
 Skips already-completed runs (one parquet per run).
 Usage:
-    python run_all.py [--models distilbert bert] [--tasks sst2] [--phase 1]
+    python run_all.py [--models distilbert bert] [--task sst2] [--phase 1]
 """
 
 import argparse
