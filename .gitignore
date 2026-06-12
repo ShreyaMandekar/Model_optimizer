@@ -55,3 +55,6 @@ env/
 dist/
 build/
 
+*.log
+run_logs/
+logs/
