@@ -113,7 +113,8 @@ RESULTS = ROOT / "results"
 RUNS    = RESULTS / "runs"
 AUDITS  = RESULTS / "audits"
 FIGS    = RESULTS / "figures"
-LOGS    = ROOT / "logs"
+import os as _os
+LOGS    = Path(_os.environ.get("QAT_LOGS_DIR", "/tmp")) / "qat_run_data"
 
 for _p in [RESULTS, RUNS, AUDITS, FIGS, LOGS]:
     _p.mkdir(parents=True, exist_ok=True)
