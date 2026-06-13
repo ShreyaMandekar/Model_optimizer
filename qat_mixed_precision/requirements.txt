@@ -1,0 +1,11 @@
+# Core (already in the fusion_qat venv)
+torch>=2.4
+transformers>=5.0
+datasets
+pyarrow
+pandas
+scipy
+matplotlib
+
+# Mamba fast path (install on PARAM Shavak for ~3-5x speedup; needs CUDA toolkit/nvcc)
+# pip install mamba-ssm causal-conv1d
