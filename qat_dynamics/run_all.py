@@ -17,13 +17,14 @@ PHASE2_MODELS  = ["bert"]
 DEFAULT_TASK   = "sst2"
 
 
-def sweep(models, task, seeds):
-    total = len(models) * len(ARMS) * len(seeds)
+def sweep(models, task, seeds, arms=None):
+    arms = arms or ARMS
+    total = len(models) * len(arms) * len(seeds)
     done  = 0
     failed = []
 
     for model_key in models:
-        for metric, strategy in ARMS:
+        for metric, strategy in arms:
             for seed in seeds:
                 run_id = f"{model_key}__{task}__{metric}__{strategy}__seed{seed}"
                 out = RUNS / f"{run_id}.parquet"
@@ -57,6 +58,8 @@ def main():
     parser.add_argument("--task",   default=DEFAULT_TASK)
     parser.add_argument("--phase",  type=int, default=1,
                         help="1=primary models, 2=all models")
+    parser.add_argument("--metric", default=None, choices=["cv", "kl"],
+                        help="Only run arms for this metric (for parallel GPU runs)")
     args = parser.parse_args()
 
     if args.phase == 2:
@@ -64,7 +67,11 @@ def main():
     else:
         models = args.models
 
-    sweep(models, args.task, SEEDS)
+    arms = ARMS
+    if args.metric:
+        arms = [(m, s) for m, s in ARMS if m == args.metric]
+
+    sweep(models, args.task, SEEDS, arms=arms)
 
 
 if __name__ == "__main__":

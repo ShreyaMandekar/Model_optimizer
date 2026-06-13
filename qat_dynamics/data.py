@@ -16,7 +16,7 @@ from config import (
 def get_loaders(task_name: str, model_hf_name: str, seed: int = 42):
     """Return (train_loader, eval_loader, calib_batch) for the given GLUE task."""
     cfg = TASKS[task_name]
-    raw = load_dataset("glue", cfg["glue_name"])
+    raw = load_dataset("nyu-mll/glue", cfg["glue_name"])
 
     tokenizer = AutoTokenizer.from_pretrained(model_hf_name)
 
