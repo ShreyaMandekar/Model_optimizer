@@ -1,0 +1,138 @@
+{
+  "model": "vit-s",
+  "scheme": "w8a8",
+  "backend": "compile",
+  "batch": 16,
+  "seq": 128,
+  "git_commit": "b5b9919",
+  "timestamp": "2026-06-05T00:31:37",
+  "oom": false,
+  "error": null,
+  "temp_start": 55.0,
+  "sm_clock_mhz": 2100.0,
+  "power_w": 11.08,
+  "weight_bytes": 44101328,
+  "analytical_mem_bytes": 88202656,
+  "flops": 2357212176,
+  "compile_time_s": 0.011586666107177734,
+  "kernel_count": 492,
+  "kernel_mix": [
+    {
+      "name": "CUDAGraphTreeManager.record_function (dynamo_timed)",
+      "count": 2,
+      "cuda_time_ms": 912.8552
+    },
+    {
+      "name": "Torch-Compiled Region: 0/7",
+      "count": 3,
+      "cuda_time_ms": 25.3232
+    },
+    {
+      "name": "triton_tem_fused_mul_10",
+      "count": 36,
+      "cuda_time_ms": 4.2496
+    },
+    {
+      "name": "triton_red_fused__to_copy_add_amax_amin_clamp_div_gelu_maximum_minimum_mul_neg_reciprocal_view_zeros_like_11",
+      "count": 36,
+      "cuda_time_ms": 3.5349
+    },
+    {
+      "name": "triton_tem_fused_mul_3",
+      "count": 36,
+      "cuda_time_ms": 3.2083
+    },
+    {
+      "name": "sm80_xmma_fprop_implicit_gemm_indexed_f16f16_f16f32_f32_nhwckrsc_nhwc_tilesize256x64x32_stage3_warpsize4x1x1_g1_tensor16x8x16_execute_kernel__5x_cudnn",
+      "count": 3,
+      "cuda_time_ms": 3.2031
+    },
+    {
+      "name": "void pytorch_flash::flash_fwd_kernel<pytorch_flash::Flash_fwd_kernel_traits<64, 128, 128, 4, false, false, cutlass::half_t, pytorch_flash::Flash_kernel_traits<64, 128, 128, 4, cutlass::half_t> >, false, false, false, false, false, true, false>(pytorch_flash::Flash_fwd_params)",
+      "count": 36,
+      "cuda_time_ms": 2.7579
+    },
+    {
+      "name": "triton_tem_fused_mul_12",
+      "count": 36,
+      "cuda_time_ms": 2.5992
+    },
+    {
+      "name": "triton_per_fused__to_copy_add_amax_amin_clamp_div_maximum_minimum_mul_native_layer_norm_neg_reciprocal_view_zeros_like_14",
+      "count": 33,
+      "cuda_time_ms": 1.6959
+    },
+    {
+      "name": "triton_tem_fused_mul_8",
+      "count": 36,
+      "cuda_time_ms": 1.1443
+    },
+    {
+      "name": "triton_per_fused__to_copy_add_amax_amin_clamp_div_maximum_minimum_mul_native_layer_norm_neg_reciprocal_view_zeros_like_13",
+      "count": 33,
+      "cuda_time_ms": 0.7536
+    },
+    {
+      "name": "void cudnn::engines_precompiled::nchwToNhwcKernel<__half, __half, float, false, true, (cudnnKernelDataType_t)0>(cudnn::engines_precompiled::nchw2nhwc_params_t<float>, __half const*, __half*)",
+      "count": 6,
+      "cuda_time_ms": 0.5643
+    },
+    {
+      "name": "triton_per_fused__to_copy_add_amax_amin_clamp_div_maximum_minimum_mul_neg_reciprocal_view_zeros_like_7",
+      "count": 36,
+      "cuda_time_ms": 0.4219
+    },
+    {
+      "name": "triton_poi_fused__scaled_dot_product_flash_attention_6",
+      "count": 36,
+      "cuda_time_ms": 0.257
+    },
+    {
+      "name": "triton_poi_fused__scaled_dot_product_flash_attention_5",
+      "count": 36,
+      "cuda_time_ms": 0.2312
+    },
+    {
+      "name": "triton_poi_fused__scaled_dot_product_flash_attention_4",
+      "count": 36,
+      "cuda_time_ms": 0.1958
+    },
+    {
+      "name": "triton_red_fused__to_copy_add_amax_amin_cat_clamp_div_maximum_minimum_mul_native_layer_norm_neg_reciprocal_view_zeros_like_9",
+      "count": 3,
+      "cuda_time_ms": 0.1454
+    },
+    {
+      "name": "Memset (Device)",
+      "count": 6,
+      "cuda_time_ms": 0.1081
+    },
+    {
+      "name": "aten::_foreach_copy_",
+      "count": 3,
+      "cuda_time_ms": 0.1024
+    },
+    {
+      "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<2>, at::native::(anonymous namespace)::UnaryOpFunctor<c10::Half, 2, 1, 1>, at::native::Copy<float, float> >(at::native::(anonymous namespace)::TensorListMetadata<2>, at::native::(anonymous namespace)::UnaryOpFunctor<c10::Half, 2, 1, 1>, at::native::Copy<float, float>)",
+      "count": 3,
+      "cuda_time_ms": 0.1024
+    }
+  ],
+  "int8_gemm_dispatched": false,
+  "temp_end": 54.0,
+  "latency_mean_ms": 10.5312,
+  "latency_std_ms": 0.4994,
+  "latency_p50_ms": 10.6664,
+  "latency_p90_ms": 10.9687,
+  "latency_p99_ms": 11.7086,
+  "latency_n": 300,
+  "peak_mem_mb": 74.3,
+  "throughput_samples_per_s": 1519.29,
+  "latency_cv": 0.0474,
+  "accuracy": {
+    "metric": "output_fidelity",
+    "cosine_sim": 0.037468,
+    "max_abs_diff": 2.328125,
+    "flag": true
+  }
+}

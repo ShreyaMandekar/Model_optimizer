@@ -1,0 +1,107 @@
+{
+  "label": "qat",
+  "kernel_count": 54,
+  "total_cuda_time_ms": 5.2286,
+  "top_ops": [
+    {
+      "name": "qat",
+      "cuda_time_ms": 2.52023,
+      "count": 10
+    },
+    {
+      "name": "qat",
+      "cuda_time_ms": 0.58897,
+      "count": 10
+    },
+    {
+      "name": "aten::fused_moving_avg_obs_fake_quant",
+      "cuda_time_ms": 0.4127,
+      "count": 270
+    },
+    {
+      "name": "aten::_fused_moving_avg_obs_fq_helper",
+      "cuda_time_ms": 0.4127,
+      "count": 270
+    },
+    {
+      "name": "aten::aminmax",
+      "cuda_time_ms": 0.14822,
+      "count": 270
+    },
+    {
+      "name": "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<float, at::native::MinMaxOps<float, float, int>, unsigned int, float, 4> >(at::native::ReduceOp<float, at::native::MinMaxOps<float, float, int>, unsigned int, float, 4>)",
+      "cuda_time_ms": 0.14822,
+      "count": 270
+    },
+    {
+      "name": "aten::_native_multi_head_attention",
+      "cuda_time_ms": 0.09738,
+      "count": 20
+    },
+    {
+      "name": "aten::fake_quantize_per_channel_affine_cachemask",
+      "cuda_time_ms": 0.08073,
+      "count": 50
+    },
+    {
+      "name": "at::native::(anonymous namespace)::ChooseQuantizationParamsKernelImpl(long const*, float const*, float const*, int, int, int, bool, float*, int*)",
+      "cuda_time_ms": 0.07621,
+      "count": 270
+    },
+    {
+      "name": "aten::_fake_quantize_per_tensor_affine_cachemask_tensor_qparams",
+      "cuda_time_ms": 0.06253,
+      "count": 220
+    },
+    {
+      "name": "void at::native::(anonymous namespace)::unrolled_elementwise_kernel_for_multi_outputs<2, at::native::fake_quantize_tensor_cachemask_tensor_qparams_kernel_cuda(at::Tensor&, at::Tensor&, at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor const&, long, long)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 3>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<2, unsigned int> >(int, at::native::fake_quantize_tensor_cachemask_tensor_qparams_kernel_cuda(at::Tensor&, at::Tensor&, at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor const&, long, long)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 3>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<2, unsigned int>)",
+      "cuda_time_ms": 0.05891,
+      "count": 210
+    },
+    {
+      "name": "aten::addmm",
+      "cuda_time_ms": 0.05215,
+      "count": 70
+    },
+    {
+      "name": "ampere_sgemm_32x32_sliced1x4_tn",
+      "cuda_time_ms": 0.04927,
+      "count": 60
+    },
+    {
+      "name": "aten::bmm",
+      "cuda_time_ms": 0.04432,
+      "count": 40
+    },
+    {
+      "name": "aten::linear",
+      "cuda_time_ms": 0.03899,
+      "count": 50
+    },
+    {
+      "name": "at::native::(anonymous namespace)::MovingAverageMinMax(long const*, float const*, float const*, float*, float*, float, int)",
+      "cuda_time_ms": 0.03793,
+      "count": 270
+    },
+    {
+      "name": "aten::layer_norm",
+      "cuda_time_ms": 0.02323,
+      "count": 50
+    },
+    {
+      "name": "aten::native_layer_norm",
+      "cuda_time_ms": 0.02323,
+      "count": 50
+    },
+    {
+      "name": "void at::native::(anonymous namespace)::vectorized_layer_norm_kernel<float, float>(int, float, float const*, float const*, float const*, float*, float*, float*)",
+      "cuda_time_ms": 0.02323,
+      "count": 50
+    },
+    {
+      "name": "ampere_sgemm_128x128_tn",
+      "cuda_time_ms": 0.02239,
+      "count": 20
+    }
+  ]
+}

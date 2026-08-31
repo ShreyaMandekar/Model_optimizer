@@ -1,0 +1,19 @@
+{
+  "model": "vit-s",
+  "backend": "ort",
+  "batch": 64,
+  "seq": 128,
+  "git_commit": "b5b9919",
+  "timestamp": "2026-06-05T02:01:20",
+  "scheme": "fp32",
+  "temp_start": 54.0,
+  "sm_clock_mhz": 1800.0,
+  "weight_bytes": 88202656,
+  "error": null,
+  "latency_mean_ms": 129.8599,
+  "latency_std_ms": 0.5583,
+  "latency_p50_ms": 129.6412,
+  "latency_p90_ms": 130.609,
+  "latency_p99_ms": 132.2367,
+  "throughput_samples_per_s": 492.84
+}

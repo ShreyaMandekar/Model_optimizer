@@ -1,0 +1,138 @@
+{
+  "model": "vit-s",
+  "scheme": "w8a8",
+  "backend": "compile",
+  "batch": 4,
+  "seq": 128,
+  "git_commit": "b5b9919",
+  "timestamp": "2026-06-05T00:28:55",
+  "oom": false,
+  "error": null,
+  "temp_start": 55.0,
+  "sm_clock_mhz": 2100.0,
+  "power_w": 13.89,
+  "weight_bytes": 44101328,
+  "analytical_mem_bytes": 88202656,
+  "flops": 589303044,
+  "compile_time_s": 87.99916362762451,
+  "kernel_count": 492,
+  "kernel_mix": [
+    {
+      "name": "CUDAGraphTreeManager.record_function (dynamo_timed)",
+      "count": 2,
+      "cuda_time_ms": 1391.6101
+    },
+    {
+      "name": "Torch-Compiled Region: 0/7",
+      "count": 3,
+      "cuda_time_ms": 7.2806
+    },
+    {
+      "name": "triton_tem_fused_mul_10",
+      "count": 36,
+      "cuda_time_ms": 1.1687
+    },
+    {
+      "name": "triton_red_fused__to_copy_add_amax_amin_clamp_div_gelu_maximum_minimum_mul_neg_reciprocal_view_zeros_like_11",
+      "count": 36,
+      "cuda_time_ms": 1.0803
+    },
+    {
+      "name": "triton_tem_fused_mul_3",
+      "count": 36,
+      "cuda_time_ms": 0.9026
+    },
+    {
+      "name": "triton_tem_fused_mul_12",
+      "count": 36,
+      "cuda_time_ms": 0.8502
+    },
+    {
+      "name": "sm80_xmma_fprop_implicit_gemm_indexed_f16f16_f16f32_f32_nhwckrsc_nhwc_tilesize256x64x32_stage3_warpsize4x1x1_g1_tensor16x8x16_execute_kernel__5x_cudnn",
+      "count": 3,
+      "cuda_time_ms": 0.8083
+    },
+    {
+      "name": "void pytorch_flash::flash_fwd_kernel<pytorch_flash::Flash_fwd_kernel_traits<64, 128, 128, 4, false, false, cutlass::half_t, pytorch_flash::Flash_kernel_traits<64, 128, 128, 4, cutlass::half_t> >, false, false, false, false, false, true, false>(pytorch_flash::Flash_fwd_params)",
+      "count": 36,
+      "cuda_time_ms": 0.7581
+    },
+    {
+      "name": "triton_tem_fused_mul_8",
+      "count": 36,
+      "cuda_time_ms": 0.39
+    },
+    {
+      "name": "triton_per_fused__to_copy_add_amax_amin_clamp_div_maximum_minimum_mul_native_layer_norm_neg_reciprocal_view_zeros_like_14",
+      "count": 33,
+      "cuda_time_ms": 0.3226
+    },
+    {
+      "name": "triton_per_fused__to_copy_add_amax_amin_clamp_div_maximum_minimum_mul_native_layer_norm_neg_reciprocal_view_zeros_like_13",
+      "count": 33,
+      "cuda_time_ms": 0.2205
+    },
+    {
+      "name": "void cudnn::engines_precompiled::nchwToNhwcKernel<__half, __half, float, false, true, (cudnnKernelDataType_t)0>(cudnn::engines_precompiled::nchw2nhwc_params_t<float>, __half const*, __half*)",
+      "count": 6,
+      "cuda_time_ms": 0.1996
+    },
+    {
+      "name": "triton_per_fused__to_copy_add_amax_amin_clamp_div_maximum_minimum_mul_neg_reciprocal_view_zeros_like_7",
+      "count": 36,
+      "cuda_time_ms": 0.1463
+    },
+    {
+      "name": "triton_poi_fused__scaled_dot_product_flash_attention_6",
+      "count": 36,
+      "cuda_time_ms": 0.0946
+    },
+    {
+      "name": "triton_poi_fused__scaled_dot_product_flash_attention_5",
+      "count": 36,
+      "cuda_time_ms": 0.0879
+    },
+    {
+      "name": "triton_poi_fused__scaled_dot_product_flash_attention_4",
+      "count": 36,
+      "cuda_time_ms": 0.0866
+    },
+    {
+      "name": "aten::_foreach_copy_",
+      "count": 3,
+      "cuda_time_ms": 0.0439
+    },
+    {
+      "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<2>, at::native::(anonymous namespace)::UnaryOpFunctor<c10::Half, 2, 1, 1>, at::native::Copy<float, float> >(at::native::(anonymous namespace)::TensorListMetadata<2>, at::native::(anonymous namespace)::UnaryOpFunctor<c10::Half, 2, 1, 1>, at::native::Copy<float, float>)",
+      "count": 3,
+      "cuda_time_ms": 0.0439
+    },
+    {
+      "name": "triton_red_fused__to_copy_add_amax_amin_cat_clamp_div_maximum_minimum_mul_native_layer_norm_neg_reciprocal_view_zeros_like_9",
+      "count": 3,
+      "cuda_time_ms": 0.042
+    },
+    {
+      "name": "triton_red_fused__to_copy_add_amax_amin_cat_clamp_div_maximum_minimum_mul_native_layer_norm_neg_reciprocal_view_zeros_like_2",
+      "count": 3,
+      "cuda_time_ms": 0.0281
+    }
+  ],
+  "int8_gemm_dispatched": false,
+  "temp_end": 54.0,
+  "latency_mean_ms": 3.5435,
+  "latency_std_ms": 0.4704,
+  "latency_p50_ms": 3.4607,
+  "latency_p90_ms": 3.5876,
+  "latency_p99_ms": 6.0703,
+  "latency_n": 300,
+  "peak_mem_mb": 70.68,
+  "throughput_samples_per_s": 1128.84,
+  "latency_cv": 0.1327,
+  "accuracy": {
+    "metric": "output_fidelity",
+    "cosine_sim": -0.020887,
+    "max_abs_diff": 1.989258,
+    "flag": true
+  }
+}

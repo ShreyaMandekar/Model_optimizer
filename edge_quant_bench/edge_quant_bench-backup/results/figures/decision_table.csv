@@ -1,0 +1,7 @@
+Model Kind,Batch Regime,Best Scheme,Realized Speedup vs FP16
+decoder,large (B≥16),BF16,1.016
+decoder,small (B≤4),BF16,1.032
+encoder,large (B≥16),BF16,1.024
+encoder,small (B≤4),BF16,1.012
+vit,large (B≥16),FP16,1.0
+vit,small (B≤4),FP16,1.0

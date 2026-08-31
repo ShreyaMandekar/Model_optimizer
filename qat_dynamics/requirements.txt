@@ -1,0 +1,8 @@
+torch==2.6.0+cu124
+torchao==0.9.0
+transformers==5.3.0
+datasets==4.8.4
+scipy>=1.12
+pandas>=2.1
+pyarrow>=15.0
+matplotlib>=3.8

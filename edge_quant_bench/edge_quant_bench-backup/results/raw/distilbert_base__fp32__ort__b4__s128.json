@@ -1,0 +1,19 @@
+{
+  "model": "distilbert-base",
+  "backend": "ort",
+  "batch": 4,
+  "seq": 128,
+  "git_commit": "b5b9919",
+  "timestamp": "2026-06-05T01:53:17",
+  "scheme": "fp32",
+  "temp_start": 53.0,
+  "sm_clock_mhz": 1800.0,
+  "weight_bytes": 265455616,
+  "error": null,
+  "latency_mean_ms": 5.8844,
+  "latency_std_ms": 0.0455,
+  "latency_p50_ms": 5.8742,
+  "latency_p90_ms": 5.9239,
+  "latency_p99_ms": 6.1425,
+  "throughput_samples_per_s": 679.77
+}

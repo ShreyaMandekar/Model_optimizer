@@ -1,0 +1,19 @@
+{
+  "model": "gpt2",
+  "backend": "ort",
+  "batch": 16,
+  "seq": 128,
+  "git_commit": "b5b9919",
+  "timestamp": "2026-06-05T01:59:53",
+  "scheme": "fp32",
+  "temp_start": 54.0,
+  "sm_clock_mhz": 1800.0,
+  "weight_bytes": 497759232,
+  "error": null,
+  "latency_mean_ms": 47.7117,
+  "latency_std_ms": 0.2184,
+  "latency_p50_ms": 47.6357,
+  "latency_p90_ms": 48.2331,
+  "latency_p99_ms": 48.3889,
+  "throughput_samples_per_s": 335.35
+}

@@ -1,0 +1,138 @@
+{
+  "model": "bert-base",
+  "scheme": "w8a16",
+  "backend": "compile",
+  "batch": 1,
+  "seq": 512,
+  "git_commit": "b5b9919",
+  "timestamp": "2026-06-05T00:54:43",
+  "oom": false,
+  "error": null,
+  "temp_start": 54.0,
+  "sm_clock_mhz": 1800.0,
+  "power_w": 9.69,
+  "weight_bytes": 218972672,
+  "analytical_mem_bytes": 437945344,
+  "flops": 87026959104,
+  "compile_time_s": 0.013641357421875,
+  "kernel_count": 2304,
+  "kernel_mix": [
+    {
+      "name": "aten::mm",
+      "count": 219,
+      "cuda_time_ms": 13.1671
+    },
+    {
+      "name": "aten::copy_",
+      "count": 222,
+      "cuda_time_ms": 4.7761
+    },
+    {
+      "name": "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)",
+      "count": 219,
+      "cuda_time_ms": 4.7649
+    },
+    {
+      "name": "ampere_fp16_s16816gemm_fp16_128x128_ldg8_f2f_stages_32x5_tn",
+      "count": 144,
+      "cuda_time_ms": 4.6711
+    },
+    {
+      "name": "ampere_fp16_s1688gemm_fp16_128x128_ldg8_f2f_stages_32x1_tn",
+      "count": 36,
+      "cuda_time_ms": 4.2424
+    },
+    {
+      "name": "ampere_fp16_s1688gemm_fp16_128x128_ldg8_f2f_tn",
+      "count": 36,
+      "cuda_time_ms": 4.2126
+    },
+    {
+      "name": "aten::mul",
+      "count": 219,
+      "cuda_time_ms": 1.882
+    },
+    {
+      "name": "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<c10::Half, c10::Half, c10::Half, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<c10::Half, c10::Half, c10::Half, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<c10::Half, c10::Half, c10::Half, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<c10::Half, c10::Half, c10::Half, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int)#1})",
+      "count": 216,
+      "cuda_time_ms": 1.8777
+    },
+    {
+      "name": "aten::add_",
+      "count": 219,
+      "cuda_time_ms": 1.8699
+    },
+    {
+      "name": "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::CUDAFunctor_add<c10::Half> >(at::TensorIteratorBase&, at::native::CUDAFunctor_add<c10::Half> const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::CUDAFunctor_add<c10::Half> >(at::TensorIteratorBase&, at::native::CUDAFunctor_add<c10::Half> const&)::{lambda(int)#1})",
+      "count": 216,
+      "cuda_time_ms": 1.8656
+    },
+    {
+      "name": "aten::_flash_attention_forward",
+      "count": 36,
+      "cuda_time_ms": 1.6152
+    },
+    {
+      "name": "void pytorch_flash::flash_fwd_kernel<pytorch_flash::Flash_fwd_kernel_traits<64, 128, 128, 4, false, false, cutlass::half_t, pytorch_flash::Flash_kernel_traits<64, 128, 128, 4, cutlass::half_t> >, false, false, false, false, true, true, false>(pytorch_flash::Flash_fwd_params)",
+      "count": 36,
+      "cuda_time_ms": 1.6152
+    },
+    {
+      "name": "aten::native_layer_norm",
+      "count": 75,
+      "cuda_time_ms": 0.6218
+    },
+    {
+      "name": "void at::native::(anonymous namespace)::vectorized_layer_norm_kernel<c10::Half, float>(int, float, c10::Half const*, c10::Half const*, c10::Half const*, float*, float*, c10::Half*)",
+      "count": 75,
+      "cuda_time_ms": 0.6218
+    },
+    {
+      "name": "aten::gelu",
+      "count": 36,
+      "cuda_time_ms": 0.5158
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::GeluCUDAKernelImpl(at::TensorIteratorBase&, at::native::GeluType)::{lambda()#2}::operator()() const::{lambda()#3}::operator()() const::{lambda(c10::Half)#1}, std::array<char*, 2ul> >(int, at::native::GeluCUDAKernelImpl(at::TensorIteratorBase&, at::native::GeluType)::{lambda()#2}::operator()() const::{lambda()#3}::operator()() const::{lambda(c10::Half)#1}, std::array<char*, 2ul>)",
+      "count": 36,
+      "cuda_time_ms": 0.5158
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctor_add<c10::Half>, std::array<char*, 3ul> >(int, at::native::CUDAFunctor_add<c10::Half>, std::array<char*, 3ul>)",
+      "count": 81,
+      "cuda_time_ms": 0.2371
+    },
+    {
+      "name": "aten::add",
+      "count": 78,
+      "cuda_time_ms": 0.2328
+    },
+    {
+      "name": "aten::index_select",
+      "count": 9,
+      "cuda_time_ms": 0.143
+    },
+    {
+      "name": "void at::native::(anonymous namespace)::indexSelectLargeIndex<c10::Half, long, unsigned int, 2, 2, -2, true>(at::cuda::detail::TensorInfo<c10::Half, unsigned int>, at::cuda::detail::TensorInfo<c10::Half const, unsigned int>, at::cuda::detail::TensorInfo<long const, unsigned int>, int, int, unsigned int, unsigned int, long)",
+      "count": 9,
+      "cuda_time_ms": 0.143
+    }
+  ],
+  "int8_gemm_dispatched": false,
+  "temp_end": 53.0,
+  "latency_mean_ms": 10.6889,
+  "latency_std_ms": 0.5894,
+  "latency_p50_ms": 10.5816,
+  "latency_p90_ms": 11.1744,
+  "latency_p99_ms": 13.4335,
+  "latency_n": 300,
+  "peak_mem_mb": 390.14,
+  "throughput_samples_per_s": 93.56,
+  "latency_cv": 0.0551,
+  "accuracy": {
+    "metric": "cosine_fidelity",
+    "cosine_sim": -0.012238,
+    "max_abs_diff": 6.386719,
+    "flag": true
+  }
+}
