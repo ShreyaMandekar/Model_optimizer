@@ -41,9 +41,9 @@ Config.ipynb
 paper/
 
 # QAT dynamics run outputs (large parquet files)
-qat_dynamics/results/runs/
-qat_dynamics/results/audits/
-*.parquet
+qat_dynamics/results/ckpts/
+qat_dynamics/results/figures/
+
 
 # Virtual environments
 venv/
