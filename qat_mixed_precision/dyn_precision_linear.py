@@ -157,41 +157,4 @@ def avg_bits(model: nn.Module) -> float:
     return wsum / max(tot, 1.0)
 
 
-# ---------------------------------------------------------------------------
-# Unit test
-# ---------------------------------------------------------------------------
-
-def run_unit_test():
-    torch.manual_seed(0)
-    lin = nn.Linear(64, 32)
-    x = torch.randn(4, 10, 64)
-    y_ref = lin(x)
-
-    dp = DynPrecisionLinear(lin.weight, lin.bias, "linear", 64, 32)
-    assert dp.weight is lin.weight, "weight object changed"
-    dp.set_bits(None)
-    assert torch.allclose(dp(x), y_ref, atol=1e-5), "FP passthrough != original"
-    for b in (8, 4, 2):
-        dp.set_bits(b)
-        out = dp(x)
-        assert out.shape == y_ref.shape
-        err = (out - y_ref).abs().mean().item()
-        print(f"[ok] linear b={b}: mean|Δ|={err:.4f}")
-
-    # conv1d layout (GPT-2 style): weight [in, out]
-    w = nn.Parameter(torch.randn(64, 32) * 0.1)
-    b_ = nn.Parameter(torch.zeros(32))
-    dpc = DynPrecisionLinear(w, b_, "conv1d", 64, 32)
-    dpc.set_bits(None)
-    y_fp = dpc(x)
-    y_manual = torch.matmul(x, w) + b_
-    assert torch.allclose(y_fp, y_manual, atol=1e-5), "conv1d FP mismatch"
-    dpc.set_bits(4); _ = dpc(x)
-    print("[ok] conv1d layout FP + 4-bit run")
-
-    print("[PASS] DynPrecisionLinear unit test")
-    return True
-
-
-if __name__ == "__main__":
-    run_unit_test()
+# Unit test: see tests/test_dyn_precision_linear.py (run with `pytest tests/`).

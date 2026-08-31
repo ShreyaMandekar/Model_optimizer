@@ -37,9 +37,9 @@ PRIMARY_MODEL = "mamba-130m"
 # ---------------------------------------------------------------------------
 TRAIN_DATASET = ("wikitext", "wikitext-103-raw-v1")
 EVAL_DATASET  = ("wikitext", "wikitext-2-raw-v1")   # KL-Lens headline metric
-SEQ_LEN       = int(os.environ.get("QMP_SEQ_LEN", 1024))
-CALIB_SAMPLES = 16     # calib batch for marginal-KL audits
-CALIB_SEQ_LEN = 512    # shorter context for cheap audits
+SEQ_LEN       = int(os.environ.get("QMP_SEQ_LEN", 512))
+CALIB_SAMPLES = int(os.environ.get("QMP_CALIB_SAMPLES", 8))     # calib batch for marginal-KL audits
+CALIB_SEQ_LEN = int(os.environ.get("QMP_CALIB_SEQ_LEN", 256))   # shorter context for cheap audits
 
 # ---------------------------------------------------------------------------
 # Training
@@ -47,7 +47,7 @@ CALIB_SEQ_LEN = 512    # shorter context for cheap audits
 TRAIN_BATCH   = int(os.environ.get("QMP_TRAIN_BATCH", 8))
 EVAL_BATCH    = 8
 GRAD_ACCUM    = 1
-TOTAL_STEPS   = int(os.environ.get("QMP_TOTAL_STEPS", 4000))
+TOTAL_STEPS   = int(os.environ.get("QMP_TOTAL_STEPS", 1500))
 LEARNING_RATE = 5e-5
 WEIGHT_DECAY  = 0.01
 WARMUP_RATIO  = 0.05
@@ -65,17 +65,24 @@ ACT_BITS  = 8   # dynamic per-token activation precision (fixed)
 # ---------------------------------------------------------------------------
 # Budget schedule (online method)  -- average param-weighted weight-bits
 # ---------------------------------------------------------------------------
-WARMUP_FRAC = 0.15   # [0, warmup): all 8-bit, gather stats
-HOLD_FRAC   = 0.70   # [warmup, hold): anneal 8 -> B*;  [hold, 1]: hold at B*, co-adapt
-AUDIT_EVERY = 250    # steps between marginal-KL audits
+WARMUP_FRAC = 0.10   # [0, warmup): all 8-bit, gather stats
+HOLD_FRAC   = 0.50   # [warmup, hold): anneal 8 -> B*;  [hold, 1]: hold at B*, co-adapt
+ANNEAL_AUDIT_EVERY = 100   # steps between marginal-KL audits, during anneal
+HOLD_AUDIT_EVERY   = 250   # steps between marginal-KL audits, during hold
 MAX_AUDIT_LAYERS = 64  # subsample candidates per audit for speed (None = all)
 
 # ---------------------------------------------------------------------------
 # Controller thresholds (pre-registered; data-relative where noted)
 # ---------------------------------------------------------------------------
 RECOVER_PCTL  = 90    # raise a layer if marginal_up > p<RECOVER_PCTL> of audit dist
-COOLDOWN_STEPS = 2 * AUDIT_EVERY   # lock a layer after a bit change
+COOLDOWN_STEPS = 2 * HOLD_AUDIT_EVERY   # lock a layer after a bit change
 RAISE_CAP     = 3     # max precision-raises per layer (guarantees termination)
+
+# ---------------------------------------------------------------------------
+# Online LR schedule (co-designed; see PAPER_VS_CODE_AUDIT.md Part 2/5)
+# ---------------------------------------------------------------------------
+ONLINE_LR_DECAY_START = 0.85   # hold peak LR until this fraction of total_steps
+ONLINE_LR_FLOOR       = 0.10   # then cosine-decay down to this fraction of peak
 
 # ---------------------------------------------------------------------------
 # The run list (Section 6 of TASK.md)

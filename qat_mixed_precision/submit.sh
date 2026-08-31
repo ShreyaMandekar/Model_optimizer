@@ -10,7 +10,7 @@ echo "=== [0/4] environment ==="
 $PY env_check.py
 
 echo "=== [1/4] unit test: DynPrecisionLinear ==="
-$PY dyn_precision_linear.py
+$PY -m pytest tests/ -v
 
 echo "=== [2/4] wrap counts (sanity) ==="
 $PY models.py mamba-130m

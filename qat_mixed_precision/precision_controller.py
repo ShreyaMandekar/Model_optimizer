@@ -17,7 +17,8 @@ from typing import Callable, Dict, List, Optional
 import numpy as np
 
 from config import (
-    BIT_SET, MAX_BITS, MIN_BITS, WARMUP_FRAC, HOLD_FRAC, AUDIT_EVERY,
+    BIT_SET, MAX_BITS, MIN_BITS, WARMUP_FRAC, HOLD_FRAC,
+    ANNEAL_AUDIT_EVERY, HOLD_AUDIT_EVERY,
     RECOVER_PCTL, COOLDOWN_STEPS, RAISE_CAP,
 )
 from dyn_precision_linear import get_dp_layers, avg_bits
@@ -69,7 +70,8 @@ class PrecisionController:
         for n in self.cooldown:
             if self.cooldown[n] > 0:
                 self.cooldown[n] -= 1
-        if global_step < self._warm or global_step % AUDIT_EVERY != 0:
+        audit_every = ANNEAL_AUDIT_EVERY if global_step < self._hold else HOLD_AUDIT_EVERY
+        if global_step < self._warm or global_step % audit_every != 0:
             return
         audit = self.audit_fn()
         base_kl = audit.pop("__base_kl__", {}).get("base_kl", 0.0)
@@ -111,7 +113,9 @@ class PrecisionController:
             best = None  # (cost_per_bit, name, newb)
             for n, r in audit.items():
                 m = self.layers[n]
-                if self.cooldown[n] > 0:
+                # cooldown gates drops in the hold phase only; to keep pace with
+                # the descending target, drops ignore cooldown during anneal
+                if self.cooldown[n] > 0 and step >= self._hold:
                     continue
                 b = m.bit_width
                 if b is None or b <= MIN_BITS:

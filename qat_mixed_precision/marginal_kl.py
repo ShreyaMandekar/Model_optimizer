@@ -9,9 +9,10 @@ KL direction (student->teacher, the only correct one per KL-Lens Prop. 1 / asymm
     Q = softmax(student_logits)   (target layers at current/probe bits)
     KL_s->t = Σ Q·(log Q − log P)
 
-For each layer we report:
-    marginal_down(ℓ) = KL(b_ℓ−1) − KL(current)   # cost of dropping ℓ one level (≥0)
-    marginal_up(ℓ)   = KL(current) − KL(b_ℓ+1)    # distortion removed by raising ℓ (≥0)
+For each layer we report, where b_ℓ- / b_ℓ+ are the adjacent values in BIT_SET
+(NOT literal bit_width ± 1 -- see _next_lower/_next_higher):
+    marginal_down(ℓ) = KL(b_ℓ-) − KL(current)   # cost of dropping ℓ one level (≥0)
+    marginal_up(ℓ)   = KL(current) − KL(b_ℓ+)   # distortion removed by raising ℓ (≥0)
 """
 from __future__ import annotations
 import random
@@ -21,6 +22,7 @@ import torch.nn.functional as F
 
 from config import MAX_BITS, MIN_BITS, MAX_AUDIT_LAYERS
 from dyn_precision_linear import get_dp_layers
+from precision_controller import _next_lower, _next_higher
 
 
 def _logits(model, batch) -> torch.Tensor:
@@ -68,11 +70,11 @@ def audit(model, calib_batch, candidates: Optional[List[str]] = None,
         b = saved[n] if saved[n] is not None else MAX_BITS
         rec = {"bits": b, "marginal_down": None, "marginal_up": None}
         if want_down and b > MIN_BITS:
-            with m.override_bits(b - 1):
+            with m.override_bits(_next_lower(b)):
                 kl = _kl_st(_logits(model, calib_batch), logP)
             rec["marginal_down"] = max(kl - base_kl, 0.0)
         if want_up and b < MAX_BITS:
-            with m.override_bits(b + 1):
+            with m.override_bits(_next_higher(b)):
                 kl = _kl_st(_logits(model, calib_batch), logP)
             rec["marginal_up"] = max(base_kl - kl, 0.0)
         out[n] = rec

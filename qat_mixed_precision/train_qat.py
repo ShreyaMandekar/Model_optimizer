@@ -25,6 +25,31 @@ def set_seed(s):
     random.seed(s); np.random.seed(s); torch.manual_seed(s); torch.cuda.manual_seed_all(s)
 
 
+def make_online_lr_schedule(optimizer, total_steps: int):
+    """LR schedule for the online method (schedule co-design, PAPER_VS_CODE_AUDIT.md
+    Part 2/5): warmup -> held at peak through anneal + hold/co-adapt -> cosine decay
+    to a floor over the final tail. A cosine-to-zero schedule (used by uniform/posthoc)
+    would place the largest precision drops where LR has decayed toward zero, leaving
+    no capacity to co-adapt.
+    """
+    import math
+    from torch.optim.lr_scheduler import LambdaLR
+
+    warmup_steps = int(C.WARMUP_FRAC * total_steps)
+    decay_start_step = int(C.ONLINE_LR_DECAY_START * total_steps)
+
+    def lr_lambda(step):
+        if step < warmup_steps:
+            return float(step) / max(1, warmup_steps)
+        if step < decay_start_step:
+            return 1.0
+        decay_frac = (step - decay_start_step) / max(1, total_steps - decay_start_step)
+        return C.ONLINE_LR_FLOOR + (1.0 - C.ONLINE_LR_FLOOR) * (
+            1.0 + math.cos(math.pi * decay_frac)) / 2.0
+
+    return LambdaLR(optimizer, lr_lambda)
+
+
 def _base_ckpt_path(model, seed):
     return C.CKPTS / f"{model}__seed{seed}__base8.pt"
 
@@ -136,8 +161,13 @@ def run(spec: dict, device="cuda"):
     else:
         raise ValueError(method)
 
-    sched = get_cosine_schedule_with_warmup(
-        opt, int(C.WARMUP_RATIO * steps), steps)
+    if method == "online":
+        # held-then-decay schedule so the optimizer can co-adapt through the
+        # anneal instead of doing so at LR~0 (see make_online_lr_schedule)
+        sched = make_online_lr_schedule(opt, steps)
+    else:
+        sched = get_cosine_schedule_with_warmup(
+            opt, int(C.WARMUP_RATIO * steps), steps)
     traj = train_loop(model, loader, opt, sched, device, steps,
                       controller=controller, eval_ids=eval_ids,
                       eval_every=max(steps // 4, 1))

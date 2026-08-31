@@ -6,6 +6,8 @@ pyarrow
 pandas
 scipy
 matplotlib
+pytest    # tests/ (run via submit.sh step [1/4] or `pytest tests/`)
+torchao   # env_check.py reports its version; submit.sh step [0/4] fails without it
 
 # Mamba fast path (install on PARAM Shavak for ~3-5x speedup; needs CUDA toolkit/nvcc)
 # pip install mamba-ssm causal-conv1d
